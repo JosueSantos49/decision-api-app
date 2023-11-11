@@ -18,8 +18,8 @@ import { UsuariosComponent } from './usuarios/containers/usuarios/usuarios.compo
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    UsuariosComponent
+    HomeComponent
+    //UsuariosComponent
   ],
   imports: [
     BrowserModule,

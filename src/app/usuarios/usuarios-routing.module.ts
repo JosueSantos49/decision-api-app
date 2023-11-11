@@ -5,6 +5,10 @@ import { UsuarioFormComponent } from './containers/usuario-form/usuario-form.com
 
 const routes: Routes = [
   {
+    path: '',
+    component: UsuariosComponent
+  },
+  {
     path: 'novo',
     component: UsuarioFormComponent
   }

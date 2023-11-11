@@ -13,7 +13,7 @@ import { UsuarioFormComponent } from './containers/usuario-form/usuario-form.com
 
 @NgModule({
   declarations: [
-    //UsuariosComponent,
+    UsuariosComponent,
     UsuariosListComponent,
     UsuarioFormComponent
   ],

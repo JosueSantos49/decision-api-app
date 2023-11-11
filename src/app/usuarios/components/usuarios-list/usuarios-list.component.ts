@@ -11,13 +11,15 @@ export class UsuariosListComponent implements OnInit{
   @Input() usuarios: Usuario[] = [];
   @Output() add = new EventEmitter(false);
 
-  readonly displayedColumns = ['nome', 'email'];
+  readonly displayedColumns = ['nome', 'email', 'acao'];
+  //displayedColumns = ['nome', 'email', 'acao'];
 
   ngOnInit(): void {
   }
 
   onAdd():any{
     this.add.emit(true);
+    console.log('onAdd: ',this.add.emit(true));
   }
 
 }

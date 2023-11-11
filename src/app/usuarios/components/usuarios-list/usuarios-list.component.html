@@ -1,4 +1,8 @@
-<mat-table [dataSource]="usuarios">
+<mat-table [dataSource]="usuarios">Oiiiii
+
+  <!--cabeçalho/linhas-->
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
   <!-- Nome Column -->
   <ng-container matColumnDef="nome">
@@ -20,8 +24,17 @@
       </button>
     </mat-header-cell>
 
+    <mat-cell *matCellDef="let usuario" class="action-column">
+      <button mat-icon-button color="primary" aria-label="Editar Usuário">
+        <mat-icon>edit</mat-icon>
+      </button>
+
+      <button mat-icon-button color="warn" aria-label="Deletar Usuário">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+
   </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
 </mat-table>

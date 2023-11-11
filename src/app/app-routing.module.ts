@@ -10,8 +10,8 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'usuario',
-    component: UsuariosComponent
+    path: 'usuarios',
+    loadChildren: () => import('./usuarios/usuarios.module').then(module => module.UsuariosModule)
   }
 
 ];

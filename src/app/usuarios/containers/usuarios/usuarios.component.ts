@@ -24,6 +24,7 @@ export class UsuariosComponent implements OnInit{
     private snackBar: MatSnackBar
   ){
     this.atualizar();
+    console.log('Atualizar: ',this.atualizar());
   }
 
   ngOnInit(): void {

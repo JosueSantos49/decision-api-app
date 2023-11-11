@@ -16,11 +16,16 @@ export class UsuariosService {
   constructor(private httpClient: HttpClient) { }
 
   lista() {
+    console.log(this.httpClient.get<Usuario[]>(this.url + this.PATH_API_AUTH + '/lista-usuarios', {responseType:"json"}));
     return this.httpClient.get<Usuario[]>(this.url + this.PATH_API_AUTH + '/lista-usuarios', {responseType:"json"})
     .pipe(
      first(),
-     tap(usuarios => console.log(usuarios))
+     tap(usuarios => console.log('lista usuarios: ',usuarios))
     );
+  }
+
+  salvar(registro: Partial<Usuario>) {
+    return this.httpClient.post<Usuario>(this.url + this.PATH_API_AUTH + '/criar-usuario', registro, {responseType:"json"}).pipe(first());
   }
 
 }
