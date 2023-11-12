@@ -1,10 +1,11 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsuariosService } from '../../../services/usuarios.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { Usuario } from 'src/app/modelo/Usuario';
+import { FormValidations } from 'src/app/shared/form-validations ';
 
 @Component({
   selector: 'app-usuario-form',
@@ -24,9 +25,18 @@ export class UsuarioFormComponent implements OnInit{
   ){
     this.form = this.formBuilder.group({
       codigo: [0],
-      nome: [''],
-      email: [''],
-      senha: ['']
+      nome: ['', [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(50)
+      ]],
+      email: [null, [Validators.required, Validators.email]],
+      senha: ['', [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(20)
+      ]],
+      confirmarSenha: [null, [Validators.required, FormValidations.equalsTo('senha')]]
     });
   }
 
@@ -78,5 +88,7 @@ export class UsuarioFormComponent implements OnInit{
 
     return 'Campo Inválido';
   }
+
+
 
 }
