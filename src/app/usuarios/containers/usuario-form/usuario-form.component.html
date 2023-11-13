@@ -16,8 +16,8 @@
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <input matInput placeholder="Senha" formControlName="senha" type="password">
-        <mat-hint align="end">{{nome.value.length || 6 }} / 20</mat-hint>
+        <input matInput placeholder="Senha" formControlName="senha" #senha type="password">
+        <mat-hint align="end">{{senha.value.length || 6 }} / 20</mat-hint>
         <mat-error *ngIf="form.get('senha')?.invalid">{{getErrorMessage("senha")}}</mat-error>
       </mat-form-field>
 
